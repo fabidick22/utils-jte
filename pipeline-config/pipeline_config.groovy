@@ -1,7 +1,7 @@
 libraries{
     sdp{
         images{
-            registry = "https://docker.pkg.github.com"
+            registry = "https://ghcr.io"
             repository = "boozallen/sdp-images"
             cred = "github"
         }
