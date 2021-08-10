@@ -6,5 +6,5 @@ libraries{
             cred = "github"
         }
     }
-    detect-secrets{}
+    detect_secrets
 }
