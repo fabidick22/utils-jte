@@ -6,7 +6,7 @@ void call(){
         String image_tag = config.image_tag ?: "latest"
         String detect_secrets_img = config.image_name ?: "lirantal/detect-secrets"
         if(config.containsKey("enable_owasp")){
-            inside_sdp_image "owasp-dep-check:$image_tag" {
+            inside_sdp_image "owasp-dep-check:$image_tag", {
                 unstash "workspace"
                 try {
                     sh "dependency-check -h"
@@ -15,7 +15,7 @@ void call(){
                 }
             }
         }else{
-            inside_sdp_image "$detect_secrets_img:$image_tag" {
+            inside_sdp_image "$detect_secrets_img:$image_tag", {
                 unstash "workspace"
                 try {
                     sh "${command} ${mode} ${args} ${pathToScan}"
